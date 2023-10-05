@@ -16,8 +16,6 @@ type ProjectProps = {
 
 const { title, tools, description, images, demo, repo } = Astro.props as ProjectProps
 
-
-console.log(title)
 ---
 <!-- projects   -->
 <section class="project-card flex flex-col justify-center gap-5 py-5 lg:flex-row transition-all duration-700">
@@ -69,12 +67,12 @@ console.log(title)
     }
     <Icon 
       name="slide-back-icon" 
-      class="bg-midnightBlack/30 text-white absolute left-0 top-1/2 w-7 p-1  ml-1 rounded-full -translate-y-1/2 duration-200 z-10 cursor-pointer hover:bg-midnightBlack/80" 
+      class="bg-midnightBlack/30 text-white absolute left-0 top-1/2 w-7 p-1  ml-1 rounded-full -translate-y-1/2 duration-200 cursor-pointer hover:bg-midnightBlack/80" 
       data-action="prev" 
     />
     <Icon 
       name="slide-next-icon" 
-      class="bg-midnightBlack/30 text-white absolute right-0 top-1/2 w-7 p-1 mr-1 rounded-full -translate-y-1/2 duration-200 z-10 cursor-pointer hover:bg-midnightBlack/80" 
+      class="bg-midnightBlack/30 text-white absolute right-0 top-1/2 w-7 p-1 mr-1 rounded-full -translate-y-1/2 duration-200 cursor-pointer hover:bg-midnightBlack/80" 
       data-action="next" 
     />
   </div>
