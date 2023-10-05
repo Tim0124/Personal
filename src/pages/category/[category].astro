@@ -1,9 +1,9 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro'
-import BlogCard from '../../components/BlogPost.astro'
+import BlogPost from '../../components/BlogPost.astro'
 
 //utils imports
-import { slugify, formatBlogPosts } from '../../data/utils'
+import { slugify, formatBlogPosts } from '../../utils/utils'
 
 interface FrontmatterProps {
   title: string
@@ -59,7 +59,7 @@ const catePosts = formattedPosts.filter((post) => slugify(post.frontmatter.categ
     </h1>
     <div class="flex flex-col gap-5 py-5">
       { catePosts.map((post) => (
-      <BlogCard
+      <BlogPost
         frontmatter={post.frontmatter}
         url={post.url}
       />
@@ -67,3 +67,4 @@ const catePosts = formattedPosts.filter((post) => slugify(post.frontmatter.categ
     </div>
   </section>
 </MainLayout>
+../../utils/utils

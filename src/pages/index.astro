@@ -8,7 +8,7 @@ import ScrollDown from '../components/ScrollDown.astro';
 import Title from '../components/Title.astro';
 import Icon from 'astro-icon';
 import Button from '../components/Button.astro'
-import { formatBlogPosts } from '../data/utils'
+import { formatBlogPosts } from '../utils/utils'
 import BlogPost from '../components/BlogPost.astro';
 import { literal } from 'astro/zod';
 
@@ -45,7 +45,7 @@ const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
         <div class="w-full">
           <Image src={Laptop} alt="laptop-image" class="w-full select-none"  />
         </div>
-        <h2 class="text-center text-gray-blue font-roboto">
+        <h2 class="text-center text-steelBlueGray font-roboto">
           <b class="text-3xl font-bold bg-slateBlue text-creamyWhite underline select-none ">Front-End</b><br/>
           <span class="text-md">Developer</span>
         </h2>
@@ -159,3 +159,4 @@ const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
   }
   window.addEventListener('scroll', reveal);
 </script> -->
+../utils/utils

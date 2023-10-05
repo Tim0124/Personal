@@ -1,5 +1,5 @@
 ---
-layout: "./src/layouts/BlogPostLayout.astro"
+layout: "../../layouts/BlogPostLayout.astro"
 title: 使用Astro打造個人網頁
 date: 2023-09-24
 author: Tim Kao

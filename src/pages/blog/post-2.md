@@ -1,5 +1,5 @@
 ---
-layout: "./src/layouts/BlogPostLayout.astro"
+layout: "../../layouts/BlogPostLayout.astro"
 title: Simple Twitter開發過程反思
 date: 2023-06-28
 author: Tim Kao

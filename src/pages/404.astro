@@ -1,0 +1,15 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+---
+
+<MainLayout title="404" description="404 Page">
+  <!-- 404 not page -->
+  <section class="min-h-screen flex flex-col gap-5 justify-center items-center">
+    <div class="flex flex-col items-center md:gap-5 md:flex-row">
+      <h1 class="text-3xl font-extrabold border-slateBlue text-slateBlue text-center dark:text-creamyWhite md:w-fit md:border-r-2 md:pr-5">404</h1>
+      <h2 class="text-center text-lg">This page could not be found.</h2>
+    </div>   
+    <Button text="Back" path="/" style="mx-auto" showTarget={false}/>
+  </section>
+</MainLayout>

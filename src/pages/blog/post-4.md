@@ -1,5 +1,5 @@
 ---
-layout: "./src/layouts/BlogPostLayout.astro"
+layout: "../../layouts/BlogPostLayout.astro"
 title: Tailwind CSS學習心得
 date: 2023-09-21
 author: Tim Kao

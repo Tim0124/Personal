@@ -4,7 +4,7 @@ import BlogHeader from "../components/BlogHeader.astro"
 import Category from "../components/Category.astro"
 import RelatePost from "../components/RelatedPost.astro"
 import RelatedPost from "../components/RelatedPost.astro"
-import { formatBlogPosts } from '../data/utils'
+import { formatBlogPosts } from '../utils/utils'
 
 interface FrontmatterProps {
   title: string;
@@ -64,4 +64,4 @@ const relatedPosts = formattedPosts
       }
     </section>
   </main>
-</MainLayout>
+</MainLayout>../utils/utils

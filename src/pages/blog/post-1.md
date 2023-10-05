@@ -1,5 +1,5 @@
 ---
-layout: "./src/layouts/BlogPostLayout.astro"
+layout: "../../layouts/BlogPostLayout.astro"
 title: what is “this” ?
 date: 2023-03-10
 author: Tim Kao

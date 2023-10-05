@@ -1,5 +1,5 @@
 ---
-layout: "./src/layouts/BlogPostLayout.astro"
+layout: "../../layouts/BlogPostLayout.astro"
 title: ALPHA Camp-個人成長
 date: 2023-06-29
 author: Tim Kao

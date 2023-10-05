@@ -8,7 +8,7 @@ import BlogPost from "../../components/BlogPost.astro"
 import Category from "../../components/Category.astro"
 import Pagination from "../../components/Pagination.astro"
 
-import { formatBlogPosts } from "../../../src/data/utils.js"
+import { formatBlogPosts } from "../../utils/utils.js"
 import { Image } from "astro:assets";
 
 interface FrontmatterProps {
@@ -67,11 +67,11 @@ const { page } = Astro.props ;
         <Image src={BlogImage} alt="blog-image" class="w-full h-full select-none" />
       </div>
       <div class="flex flex-col items-center gap-3 sm:flex-1 sm:items-start">
-        <h1 class="text-3xl font-bold text-light-blue dark:text-off-white">
+        <h1 class="text-3xl font-bold text-slateBlue dark:text-creamyWhite">
           Blog
         </h1>
-        <p class="text-center sm:text-start font-bold text-light-blue dark:text-off-white">
-          探索程式新世界：<br/><span class="font-normal text-gray-blue">“分享學習之旅”</span>
+        <p class="text-center sm:text-start font-bold text-slateBlue dark:text-creamyWhite">
+          探索程式新世界：<br/><span class="font-normal text-steelBlueGray">“分享學習之旅”</span>
         </p>
       </div>
     </div>
@@ -87,12 +87,13 @@ const { page } = Astro.props ;
         ))
       }
     </div>
-    <!-- categroies section -->
-    <div class="py-2 reveal flex flex-col justify-center items-center" aria-label="Blog Categories">
-      <h2 class="text-center font-bold">Categroies</h2>
-      <Category showCount={true} />
-      <!-- pagination -->
+    <!-- pagination -->
       <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    <!-- aside section -->
+    <div class="pt-10 flex flex-col justify-between items-center" aria-label="Blog Categories">
+      <!-- category -->
+        <h2 class="text-center font-bold">Blog Categroies</h2>
+        <Category showCount={true} />
     </div>
   </section>
-</MainLayout>
+</MainLayout>../../utils/utils.js
