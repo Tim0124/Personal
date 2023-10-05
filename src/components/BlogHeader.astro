@@ -1,0 +1,20 @@
+---
+//utils imports
+import { slugify, formatDate } from "../data/utils";
+
+const { title, date, category, author } = Astro.props;
+---
+<!-- blog post header -->
+<header class="w-full flex flex-col gap-2 pt-10 sm:pt-32">
+  <!-- post title -->
+    <h1 class="text-2xl font-bold text-slateBlue text-start dark:text-creamyWhite">
+      {title}
+    </h1>
+      <a href={`/category/${slugify(category)}/`} class="px-1 w-fit text-sm rounded-md bg-slateBlue text-creamyWhite hover:opacity-90 dark:bg-creamyWhite dark:text-midnightBlack">
+        <span>#</span>{slugify(category)}
+      </a>
+    <p class="text-sm text-slateBlue text-start dark:text-creamyWhite">
+      by <a class="underline" href={`/author/${slugify(author)}/`}>{author}</a>
+      • {formatDate(date)}
+    </p>
+</header>

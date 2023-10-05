@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+import { Icon } from "astro-icon";
+import { slugify } from "../data/utils";
+
+
+type ProjectProps = {
+  title: string;
+  tools: string[];
+  description: string;
+  images: string[];
+  demo: string;
+  repo: string;
+};
+
+const { title, tools, description, images, demo, repo } = Astro.props as ProjectProps
+
+
+console.log(title)
+---
+<!-- projects   -->
+<section class="project-card flex flex-col justify-center gap-5 py-5 lg:flex-row transition-all duration-700">
+  <div class="flex-1 flex flex-col gap-5">
+    <h2 class=" text-xl font-bold text-slateBlue dark:text-creamyWhite">
+      {title}
+    </h2>
+    <!-- project use tool section -->
+    <ul class="flex gap-5 flex-wrap py-2 border-b-[1px] border-steelBlueGray">
+      {
+        tools.map((tool) => (
+          <li class="flex gap-1 justify-center items-center ">
+            <Icon name={tool.toLocaleLowerCase()} class="w-6 text-slateBlue dark:text-creamyWhite"/>
+            <span class="cursor-default">{tool}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <!-- description section -->
+    <p>{description}</p>
+    <!-- demo & gitbub repo link -->
+    <div class="flex gap-5 px-1">
+      <Button
+        path={demo}
+        name="demo-Rocket-icon"
+        classStyle="w-5"
+        text="Demo"
+        showTarget={true}
+      />
+      <Button
+        path={repo}
+        name="github"
+        classStyle="w-5"
+        text="Repo"
+        showTarget={true}
+      />
+    </div>
+  </div>
+  <!-- project slide images section -->
+  <div class="slide-images w-full h-full relative aspect-video lg:w-2/3  ">
+    {
+      images.map((image, index) => (
+        <img
+          src={image}
+          alt="project-image"
+          class={`images w-full block absolute top-0 left-0 opacity-0 invisible transition-all duration-500 ease-in-out aspect-video shadow-sm shadow-midnightBlack select-none ${index === 0 ? "show" : ""}`}
+        />
+      ))
+    }
+    <Icon 
+      name="slide-back-icon" 
+      class="bg-midnightBlack/30 text-white absolute left-0 top-1/2 w-7 p-1  ml-1 rounded-full -translate-y-1/2 duration-200 z-10 cursor-pointer hover:bg-midnightBlack/80" 
+      data-action="prev" 
+    />
+    <Icon 
+      name="slide-next-icon" 
+      class="bg-midnightBlack/30 text-white absolute right-0 top-1/2 w-7 p-1 mr-1 rounded-full -translate-y-1/2 duration-200 z-10 cursor-pointer hover:bg-midnightBlack/80" 
+      data-action="next" 
+    />
+  </div>
+</section>

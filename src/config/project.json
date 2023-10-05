@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Simple Twitter",
+    "tools" : ["React" ,"CSSModules" ,"Axios", "SweetAlert2"],
+    "description" : "這是一個使用React所開發的社群平台，主要為一般與他人互動之社群功能。使用者可以自行註冊帳號，並且登入平台。",
+    "images" : ["/images/twitter-1.png", "/images/twitter-2.png", "/images/twitter-ipad.png"],
+    "demo" : "https://tim0124.github.io/simple-twitter/",
+    "repo" : "https://github.com/Tim0124/simple-twitter"
+  }
+]

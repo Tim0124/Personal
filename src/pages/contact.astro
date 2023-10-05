@@ -1,0 +1,35 @@
+---
+import ScrollDown from "../components/ScrollDown.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import ContactImage from "../../public/illustrations/contact-image.svg";
+import ContactForm from "../components/ContactForm.tsx";
+import { Image } from "astro:assets";
+import Title from "../components/Title.astro";
+---
+
+<MainLayout title="Contact" description="My Contact Page">
+  <!-- contact -->
+  <section class=" min-h-screen mx-auto flex justify-center items-center flex-col gap-20 sm:max-w-lg">
+    <div class="flex flex-col justify-center items-center gap-5 sm:flex-row-reverse">
+      <div class="w-2/3 sm:w-1/2 flex justify-center items-center">
+        <Image src={ContactImage} alt="contnact-image" class="w-full h-full select-none" />
+      </div>
+      <div class="flex flex-col items-center gap-3 sm:flex-1 sm:items-start">
+        <h1 class="text-3xl font-bold text-light-blue dark:text-off-white">
+          Contact
+        </h1>
+        <p class="text-center sm:text-start font-bold text-light-blue  dark:text-off-white">
+          填寫下方表單，歡迎留言給我
+        </p>
+      </div>
+    </div>
+    <ScrollDown />
+  </section>
+  <!-- contact form section -->
+  <section id="content-wrapper" class="reveal w-full py-5 mx-auto transition-all duration-500  sm:w-3/4 lg:w-2/4">
+    <Title title="Contact Form" />
+    <div>
+      <ContactForm client:only="react" />
+    </div>
+  </section>
+</MainLayout>

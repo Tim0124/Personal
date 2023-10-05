@@ -1,0 +1,11 @@
+---
+type titlProps = {
+  title: string
+}
+
+const { title }= Astro.props as titlProps
+---
+<!-- every page title -->
+<h1 class="text-2xl font-extrabold text-slateBlue dark:text-creamyWhite py-5 border-b-[1px] border-steelBlueGray">
+  {title}
+</h1>

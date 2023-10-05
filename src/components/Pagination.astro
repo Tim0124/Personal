@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon";
+
+const { prevUrl, nextUrl } = Astro.props;
+---
+<!-- blog page pagination -->
+<nav class="mx-auto w-full flex justify-center items-center gap-5 pt-10" aria-label="Blog pages">
+  <!-- previous button -->
+  {
+    prevUrl ? (
+      <button>
+        <a
+          href={prevUrl}
+          class="flex flex-row-reverse items-center w-fit transition-all duration-300 ease-out hover:text-slateBlue hover:-translate-x-1 dark:hover:text-creamyWhite"
+        >
+          <span class="font-bold">Previous</span>
+          <Icon name="ArrowLeft" class="w-8 cursor-pointer" />
+        </a>
+      </button>
+    ) : 
+    (
+      <button disabled>
+        <a
+          href={prevUrl}
+          class="flex flex-row-reverse items-center w-fit transition-all duration-300 ease-out text-steelBlueGray/50"
+        >
+          <span class="font-bold">Previous</span>
+          <Icon name="ArrowLeft" class="w-8" />
+        </a>
+      </button>
+    )
+  }
+  <!-- next button -->
+  {
+    nextUrl ? (
+      <button>
+        <a
+          href={nextUrl}
+          class="flex items-center w-fit transition-all duration-300 ease-out hover:text-slateBlue hover:translate-x-1 dark:hover:text-creamyWhite"
+        >
+          <span class="font-bold">Next</span>
+          <Icon name="ArrowRight" class="w-8 cursor-pointer" />
+        </a>
+      </button>
+    ) : 
+    (
+      <button disabled>
+        <a
+          href={nextUrl}
+          class="flex flex-row items-center w-fit transition-all duration-300 ease-out text-steelBlueGray/50"
+        >
+          <span class="font-bold">Next</span>
+          <Icon name="ArrowRight" class="w-8 " />
+        </a>
+      </button>
+    )
+  }
+</nav>

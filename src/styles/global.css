@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+  body {
+    @apply dark: bg-midnightBlack;
+  }
+} */
+
+/*reset */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Verdana',sans-serif;
+  /* Verdana Roboto Mona-Sans */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+/* global */
+
+/* title font-size */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+h4 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+h5 {
+  font-size: 0.5rem;
+  font-weight: 700;
+}
+h6 {
+  font-size: 0.25rem;
+  font-weight: 700;
+}
+
+/* mobile menu */
+.hamburger {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+.hamburger span {
+  display: block;
+  width: 35px;
+  height: 4px;
+  position: relative;
+  background-color: #9393a7;
+  z-index: 10;
+  border-radius: 10px;
+  transform-origin: 4px 0px;
+
+}
+
+
+.hamburger span:first-child{
+  transform-origin: 0% 0%;
+}
+.hamburger span:last-child{
+  transform-origin: 0% 100%;
+}
+
+ input:checked ~ .hamburger-area span:first-child{
+  position: relative;
+  transform: rotate(46deg) translate(0px, 0px);
+} 
+
+ input:checked ~ .hamburger-area span:nth-last-child(2){
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+ input:checked ~ .hamburger-area span:last-child{
+  position: relative;
+  transform: rotate(-46deg) translate(0px, 0px);
+}
+
+
+/* menu */
+.input-toggle:checked ~ #menu-list li {
+  opacity: 1;
+}
+
+/* active */
+.reveal {
+  @apply translate-y-10  opacity-0 transition-all duration-500 delay-200 ease-in relative
+}
+
+.reveal-active {
+  @apply relative translate-y-0 opacity-100
+}
+
+.slide-images .show {
+  @apply opacity-100 visible
+}
+
+.navbar nav {
+  @apply -top-[82px]
+}
+
+a .list-item {
+  @apply  opacity-100 
+}

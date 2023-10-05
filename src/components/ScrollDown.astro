@@ -1,0 +1,24 @@
+---
+import Icon from 'astro-icon';
+---
+<!-- scroll down button -->
+<button
+  class="w-full h-14 mx-auto opacity-80 animate-bounce select-none hover:opacity-100"
+  aria-label="Scroll to Content"
+  onclick="ScrollDown()"
+  role="button"
+  type="button"
+>
+  <Icon name="scroll-down-icon" class="w-14 mx-auto"/>
+</button>
+
+<script is:inline>
+  function ScrollDown() {
+    const element = document.getElementById('content-wrapper');
+    element?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+  }
+</script>

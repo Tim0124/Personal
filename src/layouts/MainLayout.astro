@@ -1,0 +1,108 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ScrollTop from '../components/ScrollTop.astro'
+//style import
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description: string
+}
+
+const {title, description } = Astro.props as Props
+--- 
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo-icon.svg"/>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <ViewTransitions/>
+  </head>
+  <body id="content-top" class="flex flex-col items-center min-h-screen max-w-screen-xl mx-auto relative transition-all duration-300 ease-out bg-light-theme bg-cover dark:bg-dark-theme bg-scroll scroll-smooth text-steelBlueGray" transition:animate="slide">
+    <Navbar/>
+    <main class="w-full flex-grow flex flex-col justify-start items-center px-5 sm:px-10 transition-all duration-700 relative" transition:animate="slide">
+      <slot/>
+    </main>
+    <ScrollTop/>
+    <Footer/>
+  </body>
+</html>
+
+<!-- <script is:inline>
+  if (
+    localStorage.getItem('color-theme') === 'dark' ||
+    (!('color-theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme:dark)').matches)
+  ) {
+    ;
+  } else {
+    
+  }
+</script> -->
+<script is:inline>
+  const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+  const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+
+  if (
+    localStorage.getItem("color-theme") === "dark" ||
+    (!("color-theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme:dark)").matches)
+  ) {
+    themeToggleLightIcon?.classList.remove("hidden");
+    document.documentElement.classList.add('dark')
+  } else {
+    themeToggleDarkIcon?.classList.remove("hidden");
+    document.documentElement.classList.remove('dark');
+  }
+
+  const themeToggleBtn = document.getElementById("theme-toggle");
+
+  function changeThemeMode() {
+    themeToggleDarkIcon?.classList.toggle("hidden");
+    themeToggleLightIcon?.classList.toggle("hidden");
+
+    if (localStorage.getItem("color-theme")) {
+      if (localStorage.getItem("color-theme") === "light") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+      }
+    } else {
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+      }
+    }
+  }
+
+  themeToggleBtn.addEventListener("click", changeThemeMode);
+  document.addEventListener("astro:after-swap", changeThemeMode)
+</script>
+<script is:inline>
+  function reveal() {
+    const reveals = document.querySelectorAll('.reveal');
+
+    reveals.forEach((reveal) => {
+      const windowHeight = window.innerHeight;
+      const revealTop = reveal.getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (revealTop < windowHeight - revealPoint) {
+        reveal.classList.add('reveal-active');
+      } 
+    });
+  }
+
+  window.addEventListener('scroll', reveal);
+</script>

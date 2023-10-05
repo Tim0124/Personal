@@ -1,0 +1,63 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import BlogCard from "../../components/BlogPost.astro";
+
+//utils imports
+import { slugify, formatBlogPosts } from "../../data/utils";
+
+interface FrontmatterProps {
+  title: string;
+  date: string;
+  category: string;
+  author: string;
+  description: string;
+  draft: boolean;
+}
+
+interface PostProps {
+  frontmatter: FrontmatterProps;
+  url: string;
+  tagType: string;
+}
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob("../blog/*.md");
+  const formattedPosts: PostProps[] = formatBlogPosts(allPosts);
+  const allAuthors = [...new Set(
+    formattedPosts.map((post) => post.frontmatter.author).flat()
+  )]
+  
+  return allAuthors.map((author) => {
+    const authorPosts = formattedPosts.filter((post) => post.frontmatter.author === author)
+      
+    return {
+      params: { author: slugify(author)},
+      props: {
+        authorName: author,
+        posts: authorPosts,
+      }
+    }
+  })
+
+}
+
+const { authorName, posts } = Astro.props;
+
+
+---
+
+<MainLayout title={authorName} description="author posts page">
+  <section aria-label={`Posts by ${authorName}`} class="w-full pt-10 sm:pt-32 ">
+    <h1 class="text-xl font-bold">
+      Post by <span class="text-light-blue dark:text-off-white">{authorName}</span>
+    </h1>
+    <div class="flex flex-col gap-5 py-5">
+      { posts.map((post:PostProps) => (
+        <BlogCard
+          frontmatter={post.frontmatter}
+          url={post.url}
+        />
+      )) }
+    </div>
+  </section>
+</MainLayout>

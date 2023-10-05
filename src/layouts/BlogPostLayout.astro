@@ -1,0 +1,67 @@
+---
+import MainLayout from "./MainLayout.astro";
+import BlogHeader from "../components/BlogHeader.astro"
+import Category from "../components/Category.astro"
+import RelatePost from "../components/RelatedPost.astro"
+import RelatedPost from "../components/RelatedPost.astro"
+import { formatBlogPosts } from '../data/utils'
+
+interface FrontmatterProps {
+  title: string;
+  date: string;
+  category: string;
+  author: string;
+  description: string;
+  draft: boolean;
+}
+
+interface PostProps {
+  frontmatter: FrontmatterProps;
+  url: string;
+}
+
+const { frontmatter } = Astro.props;
+const { title, description, date, category, author } = frontmatter;
+const allPosts = await Astro.glob("../pages/blog/*.md");
+const formattedPosts = formatBlogPosts(allPosts, {
+  sortByDate: true,
+});
+
+const relatedPosts = formattedPosts
+  .filter(
+    (post: PostProps) =>
+      post.frontmatter.category === category && post.frontmatter.title !== title
+  )
+  .slice(0, 3);
+
+---
+
+<MainLayout {title} {description}>
+  <!-- blog header -->
+  <BlogHeader {title} {date} {category} {author} />
+  <!-- blog content -->
+  <main class="flex flex-col lg:flex-row sm:gap-5">
+    <section class="flex-1">
+      <slot />
+    </section>
+    <!-- sidebar -->
+    <section class=" lg:w-1/5">
+      <aside class="flex flex-col justify-center items-center py-5 sm:py-0" aria-label="Blog Categories">
+        <h3 class="font-verdana text-center w-full border-b-[1px] border-slateBlue text-slateBlue dark:text-creamyWhite dark:border-creamyWhite">
+          Categroies
+        </h3>
+        <Category />
+      </aside>
+      {
+        relatedPosts.length > 0 && (
+          <aside class="flex flex-col justify-center items-start py-5" aria-label="related posts">
+            <h3 class="font-verdana text-center w-full border-b-[1px] border-slateBlue text-slateBlue dark:text-creamyWhite dark:border-creamyWhite">
+              Related Posts
+            </h3>
+            <RelatedPost {relatedPosts} />
+          </aside>
+        )
+      }
+    </section>
+  </main>
+</MainLayout>

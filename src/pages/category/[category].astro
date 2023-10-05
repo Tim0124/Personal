@@ -1,0 +1,69 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro'
+import BlogCard from '../../components/BlogPost.astro'
+
+//utils imports
+import { slugify, formatBlogPosts } from '../../data/utils'
+
+interface FrontmatterProps {
+  title: string
+  date: string
+  category: string
+  author: string
+  description: string
+  draft: boolean
+}
+
+interface PostProps {
+  frontmatter: FrontmatterProps
+  url: string
+  tagType: string
+}
+
+export async function getStaticPaths()  {
+  return [
+    {
+      params: { category: slugify("Record")},
+      props: { name: "Record"},
+    },
+    {
+      params: { category: slugify("JavaScript")},
+      props: { name: "JavaScript"},
+    },
+    {
+      params: { category: slugify("astro")},
+      props: { name: "astro"},
+    },
+    {
+      params: { category: slugify("tailwindcss")},
+      props: { name: "tailwindcss"},
+    },
+  ]
+}
+
+const { category } = Astro.params
+const { name } = Astro.props
+
+const allPosts = await Astro.glob("../blog/*.md")
+const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
+const catePosts = formattedPosts.filter((post) => slugify(post.frontmatter.category) === category)
+
+
+---
+
+<MainLayout title="categories" description="categories page">
+  <section aria-label={`Posts" about ${name}`} class="w-full pt-10 sm:pt-32 ">
+    <h1 class="text-xl font-bold">
+      Post about 
+      <span class="text-light-blue dark:text-off-white">{name}</span>
+    </h1>
+    <div class="flex flex-col gap-5 py-5">
+      { catePosts.map((post) => (
+      <BlogCard
+        frontmatter={post.frontmatter}
+        url={post.url}
+      />
+      )) }
+    </div>
+  </section>
+</MainLayout>

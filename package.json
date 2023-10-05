@@ -1,0 +1,36 @@
+{
+  "name": "tim-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write 'src/**/*.astro'"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.0.2",
+    "@astrojs/tailwind": "^5.0.0",
+    "@emailjs/browser": "^3.11.0",
+    "@types/react": "^18.2.24",
+    "@types/react-dom": "^18.2.8",
+    "astro": "^3.2.2",
+    "astro-icon": "^0.8.1",
+    "emailjs": "^4.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "prettier-plugin-tailwindcss": "^0.5.4"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
+  }
+}

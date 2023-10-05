@@ -1,0 +1,109 @@
+---
+//layout import
+import MainLayout from "../layouts/MainLayout.astro";
+
+//images import
+import ProjectImage from "../../public/illustrations/portfolio-image.svg";
+
+//component imports
+import { Image } from "astro:assets";
+import ProjectCard from "../components/ProjectCard.astro";
+import ScrollDown from "../components/ScrollDown.astro";
+import Title from "../components/Title.astro";
+
+//json imports
+import ProjectsInfo from "../config/project.json";
+
+console.log(ProjectsInfo)
+---
+
+<MainLayout title="Project" description="My Project Page">
+  <!-- project -->
+  <section class="min-h-screen mx-auto flex flex-col justify-center items-center gap-20 sm:max-w-lg">
+    <div class="flex flex-col justify-center items-center gap-5 sm:flex-row-reverse">
+      <div class="w-60 flex justify-center items-center">
+        <Image src={ProjectImage} alt="project-image" class="w-full h-full select-none" />
+      </div>
+      <div class="flex flex-col items-center gap-3 sm:flex-1 sm:items-start">
+        <h1 class="text-3xl font-bold text-light-blue dark:text-off-white">
+          Project
+        </h1>
+        <p class="text-center sm:text-start font-bold text-light-blue dark:text-off-white">
+          打造解決方案，改變體驗：<br/><span class="font-normal text-gray-blue">“探索我的專案”</span>
+        </p>
+      </div>
+    </div>
+    <ScrollDown />
+  </section>
+  
+  <!-- all project card section -->
+  <section id="content-wrapper" class="w-full py-5 reveal">
+    <Title title="Project" />
+    {
+      ProjectsInfo.map((project) => (
+        <ProjectCard key={project.title} {...project} />
+      ))
+    }
+  </section>
+</MainLayout>
+
+<script is:inline>
+let cards = document.querySelectorAll(".project-card");
+
+cards.forEach((card) => {
+  let count = 0;
+  let time = 3000;
+  let slide = card.querySelector(".slide-images");
+  let images = slide?.querySelectorAll("img")
+  let imagesCount = images?.length;
+  let interval = window.setInterval(nextSlide, time);
+
+  function nextSlide() {
+    images.forEach((image) => image.classList.remove("show"));
+    count = (count + 1) % imagesCount;
+    images[count].classList.add("show");
+  }
+
+  function prevSlide() {
+    images.forEach((image) => image.classList.remove("show"));
+    count = (count - 1 + imagesCount) % imagesCount;
+    images[count].classList.add("show");
+  }
+
+  function startInterval() {
+    interval = window.setInterval(nextSlide, time);
+  }
+
+  function stopInterval() {
+    clearInterval(interval);
+  }
+
+  slide?.addEventListener("click", function (event) {
+    const target = event.target
+
+    if (target.dataset.action === "next") {
+      clearInterval(interval);
+      nextSlide();
+    } else if (target.dataset.action === "prev") {
+      clearInterval(interval);
+      prevSlide();
+    }
+  });
+
+  slide?.addEventListener('mouseover', function () {
+    stopInterval()
+  })
+
+  slide?.addEventListener('mouseout', function () {
+    startInterval()
+  })
+
+  card.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+      startInterval();
+    } else {
+      stopInterval();
+    }
+  });
+});
+</script>

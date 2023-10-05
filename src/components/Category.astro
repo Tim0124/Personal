@@ -1,0 +1,52 @@
+---
+import { formatBlogPosts, slugify } from "../data/utils";
+
+interface FrontmatterProps {
+  title: string;
+  date: string;
+  category: string;
+  author: string;
+  description: string;
+  draft: boolean;
+}
+
+interface PostProps {
+  frontmatter: FrontmatterProps;
+  url: string;
+  tagType: string;
+}
+
+const allPosts = await Astro.glob("../pages/blog/*.md");
+const formattedPosts = formatBlogPosts(allPosts);
+const allCategories = formattedPosts
+  .map((cate: PostProps) => cate.frontmatter.category.toLowerCase())
+  .flat();
+
+const processesCate = allCategories.reduce(
+  (acc: { [x: string]: number }, category: string | number) => {
+    //標籤是否已存在
+    const value = acc[category] || 0;
+
+    return {
+      ...acc,
+      [category]: value + 1,
+    };
+  },
+  {}
+);
+
+const { showCount } = Astro.props;
+---
+<!-- blog page categories  -->
+<ul class="w-full flex flex-wrap justify-center items-center gap-2 py-2 min-w-[200px]">
+  {
+    Object.entries(processesCate).map(([key, val]) => (
+      <a href={`/category/${key}`}>
+        <li class="font-verdana text-xs rounded-md p-1 transition-all duration-300 ease-out text-creamyWhite bg-slateBlue hover:opacity-90 dark:text-midnightBlack dark:bg-creamyWhite">
+          {slugify(key)}
+          {showCount && `(${val})`}
+        </li>
+      </a>
+    ))
+  }
+</ul>
