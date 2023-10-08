@@ -11,7 +11,7 @@ category: Record
 <br/>
 
 
-![simple twitter image](/src/assets/images/twitter.gif)
+![simple twitter image](/images/twitter.gif)
 <p class="text-center text-sm">simple twitter https://tim0124.github.io/simple-twitter/</p>
 <br/>
 Twitter專案的期限為期兩週，有分為4人前後分離以及3人的全端開發，依照規定的規格完成本次的專案。在開始前其實會有點擔心溝通的問題，原因是沒有經歷過多人協作，所以多少會有點擔心大家會不會都不太討論。
@@ -63,7 +63,7 @@ git問題
 <br/>
 <br/>
 
-![simple twitter dev api](/src/assets/images/twitter-API.png)
+![simple twitter dev api](/images/twitter-API.png)
 <br/>
 <br/>
 

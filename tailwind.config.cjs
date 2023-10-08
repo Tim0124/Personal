@@ -12,7 +12,8 @@ module.exports = {
 				'coralRed': '#EC4C56',
 				'creamyWhite': '#FAF1E4',
 				'deepOrange': '#FF6600',
-				'lightGray' : '#C2C2C2'
+				'lightGray' : '#C2C2C2',
+				'nightBlue' : '#2d364a'
 			},
 			backgroundImage: {
         'dark-theme': "url('/dark-background.svg')",

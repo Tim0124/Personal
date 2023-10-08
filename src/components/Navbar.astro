@@ -9,7 +9,7 @@ import { navData } from "../../src/data/navData"
 <!--  navbar -->
 <nav
   id="content-top"
-  class=" flex justify-between p-5 top-0 sticky w-full z-20 border-b-[1px] border-steelBlueGray/30 transition-all ease-out duration-300 bg-creamyWhite sm:absolute lg:max-w-screen-xl dark:bg-[#2d364a]  text-steelBlueGray dark:text-lightGray select-none"
+  class=" flex justify-between p-5 top-0 sticky w-full z-20 border-b-[1px] border-steelBlueGray/30 transition-all ease-out duration-300 bg-creamyWhite sm:absolute lg:max-w-screen-xl dark:bg-nightBlue  text-steelBlueGray dark:text-lightGray select-none"
   >
   <!--  navbar logo section -->
   <a href="/" class="group flex justify-center content-end gap-2 w-50 h-10">
@@ -26,11 +26,11 @@ import { navData } from "../../src/data/navData"
   <!-- nav items -->
   <ul
     id="menu-list"
-    class="menu-list hidden w-full justify-center pb-5 px-5 gap-5 shadow-md transition-all ease-out duration-300 bg-creamyWhite sm:flex sm:flex-row sm:w-auto sm:top-5 sm:leading-10 sm:shadow-none sm:p-0  dark:shadow-regal-blue dark:bg-[#2d364a]"
+    class="menu-list hidden w-full justify-center pb-5 px-5 gap-5 shadow-md transition-all ease-out duration-300 bg-creamyWhite sm:flex sm:flex-row sm:w-auto sm:top-5 sm:leading-10 sm:shadow-none sm:p-0  dark:shadow-regal-blue dark:bg-nightBlue"
   >
     {
       navData.map((item) => (
-        <li class="w-full flex justify-center leading-10 active:text-slateBlue   sm:opacity-100">
+        <li class="w-full flex justify-center items-center leading-10 text-steelBlueGray dark:text-lightGray">
           <NavLink text={item.text} href={item.path} iconName={item.iconName} />
         </li>
       ))
@@ -68,16 +68,6 @@ import { navData } from "../../src/data/navData"
 
   window.addEventListener('scroll', handleScroll)
 
-</script>
-<script is:inline>
-  const menuLists = document.querySelectorAll('#menu-list li')
-
-  menuLists.forEach(list => {
-    list.addEventListener('click', function() {
-      const inputToggle = document.getElementById('input-toggle')
-      inputToggle.checked = false
-    })
-  })
 </script>
 <script is:inline>
   const hamburgerMenu = document.getElementById('hamburger-menu')

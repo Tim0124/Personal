@@ -1,5 +1,4 @@
 ---
-import type { GetStaticPaths } from "astro";
 import MainLayout from "../../layouts/MainLayout.astro"
 import ScrollDown from "../../components/ScrollDown.astro"
 import Title from "../../components/Title.astro"
@@ -10,7 +9,6 @@ import Pagination from "../../components/Pagination.astro"
 
 import { formatBlogPosts } from "../../utils/utils.js"
 import { Image } from "astro:assets";
-import Icon from "astro-icon";
 
 interface FrontmatterProps {
   title: string;
@@ -98,7 +96,7 @@ const { page } = Astro.props ;
     <!-- aside section -->
     <div class="pt-10 flex flex-col justify-between items-center">
       <!-- category -->
-        <h2 class="text-center font-bold">Blog Categroies</h2>
+        <h3 class="text-center font-bold">Blog Categroies</h3>
         <Category showCount={true} />
     </div>
   </section>

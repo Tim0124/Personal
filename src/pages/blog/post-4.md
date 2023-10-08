@@ -9,13 +9,13 @@ category: tailwindcss
 ---
 <br/>
 
-![tailwind](/src/assets/images/tailwindCSS-image.png)
+![tailwind](/images/tailwindCSS-image.png)
 <br/>
  在Twitter專案結束後，發現在這個兩週所產出的專案還有很多進步的空間，在某次的飛航學習室，意外的看到Kelly學姊的side project，就覺得整體的使用者體驗很流暢，也藉機詢問是怎麼做出骨架(skeleton)的效果，當時Kelly學姊有說他是用了Tailwind做的，當下也沒近一步詢問是怎麼做的，開始搜尋Tailwind是什麼，才知道原來是CSS框架，類似於Bootstrap，但Tailwind有更多的彈性及自訂性，完全可依照需求進行客製化開發，看了官方文件照著安裝及嘗試，就這樣自己摸索和看影片，也成功將原本的Twitter專案小小的優化一下。
 <br/>
 <br/>
 
-![tailwind skeleton feature](/src/assets/images/twitter-skeleton2.gif)
+![tailwind skeleton feature](/images/twitter-skeleton2.gif)
 <p class="text-center text-sm">(在尚未取得資料前的簡單佈局，避免讓網頁呈現一片空白)</p> 
 <br/>
 <br/>
@@ -27,7 +27,7 @@ category: tailwindcss
 <br/>
 <br/>
 
-![tailwind tool](/src/assets/images/tailwind.png)
+![tailwind tool](/images/tailwind.png)
 <br/>
 <br/>
 

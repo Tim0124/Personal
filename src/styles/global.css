@@ -129,11 +129,6 @@ h6 {
 }
 
 
-/* menu */
-/* .input-toggle:checked ~ #menu-list li {
-  opacity: 1;
-} */
-
 /* active */
 .reveal {
   @apply translate-y-10  opacity-0 transition-all duration-500 delay-200 ease-in relative

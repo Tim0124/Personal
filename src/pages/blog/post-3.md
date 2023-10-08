@@ -10,7 +10,7 @@ category: Record
 <br/>
 
 
-![turtle image](/src/assets/images/turtle.png)
+![turtle image](/images/turtle.png)
 <p class="text-center sm">Photo by pexels</p>
 <br/>
 加入AC到現在也差不多過了半年多的時間了，一眨眼間就要結束課程、畢業了。回顧這段時間，從一開始對各種程式相當陌生，到現在已經可以協作開發出一個專案，回過頭來看好像真的進步滿多的。我自己的程式基礎並不是很好，不能說在這段學習過程中每項技術都學會或完全了解，但這確實是一段不斷跌跌撞撞的成長過程。

@@ -1,16 +1,12 @@
 ---
-import { Image } from 'astro:assets';
 import { toolData } from '../../src/data/toolData'
 import MainLayout from '../layouts/MainLayout.astro'
-import TimKaoImage from '../../public/logo-icon.svg'
-import Laptop from '../../public/illustrations/Laptop.svg'
 import ScrollDown from '../components/ScrollDown.astro';
 import Title from '../components/Title.astro';
 import Icon from 'astro-icon';
 import NavigationalItem from '../components/NavigationalItem.astro'
 import { formatBlogPosts } from '../utils/utils'
 import BlogPost from '../components/BlogPost.astro';
-import { literal } from 'astro/zod';
 
 interface FrontmatterProps {
   title: string;
@@ -38,7 +34,7 @@ const IntroductionText = '👋Hello，歡迎來到我的個人網站，我是一
 
 <MainLayout title="Tim kao | dev" description="My Home page">
   <!-- main first section  -->
-  <section class=" min-h-screen w-full flex flex-col justify-center items-center gap-16 ">
+  <section class=" min-h-screen w-full flex flex-col justify-center items-center gap-16">
     <div class="w-full flex flex-col justify-between items-center sm:pt-20">
       <div class="w-52">
         <Icon name="logo-icon" class="w-full h-full text-steelBlueGray dark:text-creamyWhite" />
@@ -81,15 +77,15 @@ const IntroductionText = '👋Hello，歡迎來到我的個人網站，我是一
   </section>
   
   <!--main Introduction section -->
-  <section id="content-wrapper" class="py-5 reveal">
+  <section id="content-wrapper" class="py-5 reveal ">
     <div>
       <Title title="Introduction" />
-      <p class="py-5 indent-8">
+      <p class="py-5 indent-8 text-steelBlueGray dark:text-lightGray">
         {IntroductionText}
       </p>
     </div>
     <div class="w-full flex justify-center items-center">
-      <NavigationalItem text="Contact me" path="mailto: a0925172969@gmail.com" style="font-bold"/>
+      <NavigationalItem text="Contact me" path="mailto: a0925172969@gmail.com" style="font-bold select-none"/>
     </div>
   </section>
   <!-- top three blog post section -->
@@ -104,8 +100,8 @@ const IntroductionText = '👋Hello，歡迎來到我的個人網站，我是一
         ))
       }
     </div>
-    <a class="group flex justify-center items-center gap-1 mx-auto w-fit transition-all duration-300 hover:text-slateBlue hover:translate-x-1 dark:hover:text-creamyWhite cursor-pointer" href="/blog/">
-      <span class="text-current font-bold text-steelBlueGray dark:text-lightGray select-none ">All Posts</span>
+    <a class="group flex justify-center items-center gap-1 mx-auto w-fit transition-all duration-300 text-steelBlueGray dark:text-lightGray  hover:text-slateBlue hover:translate-x-1 dark:hover:text-creamyWhite cursor-pointer" href="/blog/">
+      <span class="text-current font-bold select-none ">All Posts</span>
       <Icon name="arrow-right-icon" class="w-8"/>
     </a>
   </section>
