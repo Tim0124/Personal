@@ -69,3 +69,13 @@ import { navData } from "../../src/data/navData"
   window.addEventListener('scroll', handleScroll)
 
 </script>
+<script is:inline>
+  const menuList = document.querySelectorAll('.menu-list li')
+
+  menuList.forEach(list => {
+    list.addEventListener('click', function() {
+      const inputToggle = document.getElementById('input-toggle')
+      inputToggle.checked = false
+    })
+  })
+</script>

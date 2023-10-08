@@ -58,6 +58,6 @@ themeToggleBtn.addEventListener('click', function() {
     setTheme()
 })
 
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener(setTheme);
-document.addEventListener('astro:after-swap',setTheme)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',setTheme);
+
 </script>

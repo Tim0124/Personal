@@ -1,11 +1,6 @@
 ---
-//layout import
 import MainLayout from "../layouts/MainLayout.astro";
-
-//images import
-import ProjectImage from "../../public/illustrations/portfolio-image.svg";
-
-//component imports
+import ProjectImage from "../assets/illustrations/portfolio-image.svg";
 import { Image } from "astro:assets";
 import ProjectCard from "../components/ProjectCard.astro";
 import ScrollDown from "../components/ScrollDown.astro";
@@ -22,7 +17,12 @@ import ProjectsInfo from "../config/project.json";
   <section class="min-h-screen mx-auto flex flex-col justify-center items-center gap-20 sm:max-w-lg">
     <div class="flex flex-col justify-center items-center gap-5 sm:flex-row-reverse">
       <div class="w-60 flex justify-center items-center">
-        <Image src={ProjectImage} alt="project-image" class="w-full h-full select-none" />
+        <Image 
+          src={ProjectImage} 
+          alt="project-image" 
+          class="w-full h-full select-none" 
+          format="avif"
+        />
       </div>
       <div class="flex flex-col items-center gap-3 sm:flex-1 sm:items-start">
         <h1 class="text-3xl font-bold text-slateBlue dark:text-creamyWhite">

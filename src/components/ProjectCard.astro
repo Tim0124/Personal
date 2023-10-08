@@ -58,10 +58,14 @@ const { title, tools, description, images, demo, repo } = Astro.props as Project
   <div class="slide-images w-full h-full relative aspect-video lg:w-2/3  ">
     {
       images.map((image, index) => (
-        <img
+        <Image
           src={image}
           alt="project-image"
           class={`images w-full block absolute top-0 left-0 opacity-0 invisible transition-all duration-500 ease-in-out aspect-video shadow-sm shadow-midnightBlack select-none ${index === 0 ? "show" : ""}`}
+          width={300}
+          height={150}
+          format="avif"
+          quality={'mid'}
         />
       ))
     }

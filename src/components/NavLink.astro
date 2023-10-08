@@ -30,13 +30,4 @@ const currentPath = canonicalURL.pathname
   ></span>
 </a>
 
-<script is:inline>
-  const menuList = document.querySelectorAll('.menu-list li')
 
-  menuList.forEach(list => {
-    list.addEventListener('click', function() {
-      const inputToggle = document.getElementById('input-toggle')
-      inputToggle.checked = false
-    })
-  })
-</script>

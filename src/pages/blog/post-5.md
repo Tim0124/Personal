@@ -7,5 +7,3 @@ description: 想到的第一個side project就是做出個人網站，看了很�
 draft: true
 category: astro
 ---
-<br/>
-asd
