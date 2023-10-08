@@ -26,21 +26,21 @@ import { navData } from "../../src/data/navData"
   <!-- nav items -->
   <ul
     id="menu-list"
-    class="menu-list flex w-full flex-col justify-center pb-5 px-5 gap-5  absolute top-20 left-1/2 transform -translate-x-1/2 shadow-md  origin-top scale-y-0 transition-all ease-out duration-300 bg-creamyWhite peer-checked:scale-100 sm:scale-y-100 sm:flex-row sm:w-auto sm:top-5 sm:leading-10 sm:shadow-none sm:p-0  dark:shadow-regal-blue dark:bg-[#2d364a]"
+    class="menu-list hidden w-full justify-center pb-5 px-5 gap-5 shadow-md transition-all ease-out duration-300 bg-creamyWhite sm:flex sm:flex-row sm:w-auto sm:top-5 sm:leading-10 sm:shadow-none sm:p-0  dark:shadow-regal-blue dark:bg-[#2d364a]"
   >
     {
       navData.map((item) => (
-        <li class="w-full flex justify-center leading-10 active:text-slateBlue opacity-0 peer-checked:opacity-100  sm:opacity-100">
+        <li class="w-full flex justify-center leading-10 active:text-slateBlue   sm:opacity-100">
           <NavLink text={item.text} href={item.path} iconName={item.iconName} />
         </li>
       ))
     }
   </ul>
   <!-- right side theme toggle -->
-  <div class="hamburger-area flex justify-center items-center gap-4">
+  <div class="navRightSide flex justify-center items-center gap-4">
     <ThemeToggle />
     <!-- mobile menu switch -->
-    <label for="input-toggle" class="group flex items-center justify-center w-fit cursor-pointer sm:hidden" aira-label="mobile menu">
+    <label for="input-toggle" id="hamburger-menu" class="group flex items-center justify-center w-fit cursor-pointer sm:hidden" aira-label="mobile menu">
       <div class="hamburger" >
         <span class=" duration-300 ease-out bg-steelBlueGray group-hover:bg-slateBlue dark:group-hover:bg-creamyWhite dark:bg-lightGray"></span>
         <span class="duration-300 ease-out bg-steelBlueGray group-hover:bg-slateBlue dark:group-hover:bg-creamyWhite dark:bg-lightGray"></span>
@@ -70,12 +70,21 @@ import { navData } from "../../src/data/navData"
 
 </script>
 <script is:inline>
-  const menuList = document.querySelectorAll('.menu-list li')
+  const menuLists = document.querySelectorAll('#menu-list li')
 
-  menuList.forEach(list => {
+  menuLists.forEach(list => {
     list.addEventListener('click', function() {
       const inputToggle = document.getElementById('input-toggle')
       inputToggle.checked = false
     })
+  })
+</script>
+<script is:inline>
+  const hamburgerMenu = document.getElementById('hamburger-menu')
+  const menu = document.getElementById('menu-list')
+
+  hamburgerMenu.addEventListener('click', function() {
+    menu.classList.toggle('hidden')
+    menu.classList.toggle('show-nav-item')
   })
 </script>

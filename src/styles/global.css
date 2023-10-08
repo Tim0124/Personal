@@ -113,26 +113,26 @@ h6 {
   transform-origin: 0% 100%;
 }
 
- input:checked ~ .hamburger-area span:first-child{
+ input:checked ~ .navRightSide span:first-child{
   position: relative;
   transform: rotate(46deg) translate(0px, 0px);
 } 
 
- input:checked ~ .hamburger-area span:nth-last-child(2){
+ input:checked ~ .navRightSide span:nth-last-child(2){
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
- input:checked ~ .hamburger-area span:last-child{
+ input:checked ~ .navRightSide span:last-child{
   position: relative;
   transform: rotate(-46deg) translate(0px, 0px);
 }
 
 
 /* menu */
-.input-toggle:checked ~ #menu-list li {
+/* .input-toggle:checked ~ #menu-list li {
   opacity: 1;
-}
+} */
 
 /* active */
 .reveal {
@@ -153,4 +153,8 @@ h6 {
 
 a .list-item {
   @apply  opacity-100 
+}
+
+.show-nav-item {
+  @apply flex flex-col  absolute top-20 left-1/2 transform -translate-x-1/2  
 }

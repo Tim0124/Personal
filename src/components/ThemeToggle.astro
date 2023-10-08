@@ -26,11 +26,11 @@ import { Icon } from "astro-icon";
 let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
 function setTheme() {
-    if (localStorage.getItem('color-theme')) {
-        document.documentElement.classList[localStorage.getItem('color-theme') === 'dark' ? 'add' : 'remove']('dark');
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (localStorage.getItem('color-theme') === 'dark') {
+        // 如果localStorage中设置为'dark'，则使用深色模式
         document.documentElement.classList.add('dark');
-    } else {
+    } else if (localStorage.getItem('color-theme') === 'light' || !('color-theme' in localStorage)) {
+        // 如果localStorage中设置为'light'，或者没有设置，使用浅色模式
         document.documentElement.classList.remove('dark');
     }
     
