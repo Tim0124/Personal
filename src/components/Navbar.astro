@@ -21,6 +21,7 @@ import { navData } from "../../src/data/navData"
     id="input-toggle"
     type="checkbox"
     class="group peer input-toggle absolute right-0 top-1 w-8 h-8 cursor-pointer opacity-0 -z-20 pointer-events-none sm:hidden hover:text-slateBlue"
+    aria-label="navigation bar switch"
   />
   <!-- nav items -->
   <ul
@@ -39,8 +40,8 @@ import { navData } from "../../src/data/navData"
   <div class="hamburger-area flex justify-center items-center gap-4">
     <ThemeToggle />
     <!-- mobile menu switch -->
-    <label for="input-toggle" class="group flex items-center justify-center w-fit cursor-pointer sm:hidden">
-      <div class="hamburger">
+    <label for="input-toggle" class="group flex items-center justify-center w-fit cursor-pointer sm:hidden" aira-label="mobile menu">
+      <div class="hamburger" >
         <span class=" duration-300 ease-out bg-steelBlueGray group-hover:bg-slateBlue dark:group-hover:bg-creamyWhite dark:bg-lightGray"></span>
         <span class="duration-300 ease-out bg-steelBlueGray group-hover:bg-slateBlue dark:group-hover:bg-creamyWhite dark:bg-lightGray"></span>
         <span class="duration-300 ease-out group-hover:bg-slateBlue bg-steelBlueGray dark:group-hover:bg-creamyWhite dark:bg-lightGray"></span>
