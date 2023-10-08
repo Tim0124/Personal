@@ -26,9 +26,11 @@ import { Icon } from "astro-icon";
 let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
 function setTheme() {
-    if (localStorage.getItem('color-theme') === 'dark') {
+     if (localStorage.getItem('color-theme')) {
+        document.documentElement.classList[localStorage.getItem('color-theme') === 'dark' ? 'add' : 'remove']('dark');
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
-    } else if (localStorage.getItem('color-theme') === 'light' || !('color-theme' in localStorage)) {
+    } else {
         document.documentElement.classList.remove('dark');
     }
    
