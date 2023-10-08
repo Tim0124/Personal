@@ -9,15 +9,12 @@ import { navData } from "../../src/data/navData"
 <!--  navbar -->
 <nav
   id="content-top"
-  class="navbar flex justify-between p-5 top-0 sticky w-full z-20 border-b-[1px] border-steelBlueGray/20   transition-all ease-out duration-300 bg-creamyWhite sm:absolute lg:max-w-screen-xl dark:bg-[#2d364a] select-none"
-  role="navigation"
-  transition:animate="initial"
-  transition:persist
+  class=" flex justify-between p-5 top-0 sticky w-full z-20 border-b-[1px] border-steelBlueGray/30 transition-all ease-out duration-300 bg-creamyWhite sm:absolute lg:max-w-screen-xl dark:bg-[#2d364a]  text-steelBlueGray dark:text-lightGray select-none"
   >
   <!--  navbar logo section -->
-  <a href="/" class="flex justify-center content-end gap-2 w-50 h-10">
-    <Icon name="logo-icon" class=" w-8 text-slateBlue dark:text-creamyWhite  "/>
-    <h1 class="hidden leading-10 text-xl font-bold  text-slateBlue dark:text-creamyWhite md:block ">Tim's dev.</h1>
+  <a href="/" class="group flex justify-center content-end gap-2 w-50 h-10">
+    <Icon name="logo-icon" class=" w-8 text-steelBlueGray dark:text-lightGray group-hover:text-slateBlue dark:group-hover:text-creamyWhite"/>
+    <h1 class="hidden leading-10 text-xl font-bold  text-steelBlueGray dark:text-lightGray md:block group-hover:text-slateBlue dark:group-hover:text-creamyWhite">Tim's dev.</h1>
   </a>
   <!-- mobile menu switch -->
   <input
@@ -33,7 +30,7 @@ import { navData } from "../../src/data/navData"
     {
       navData.map((item) => (
         <li class="w-full flex justify-center leading-10 active:text-slateBlue opacity-0 peer-checked:opacity-100  sm:opacity-100">
-          <NavLink text={item.text} href={item.path} iconName={item.iconName}/>
+          <NavLink text={item.text} href={item.path} iconName={item.iconName} />
         </li>
       ))
     }
@@ -44,9 +41,9 @@ import { navData } from "../../src/data/navData"
     <!-- mobile menu switch -->
     <label for="input-toggle" class="group flex items-center justify-center w-fit cursor-pointer sm:hidden">
       <div class="hamburger">
-        <span class=" duration-300 ease-out group-hover:bg-slateBlue dark:group-hover:bg-creamyWhite"></span>
-        <span class="duration-300 ease-out group-hover:bg-slateBlue dark:group-hover:bg-creamyWhite"></span>
-        <span class="duration-300 ease-out group-hover:bg-slateBlue dark:group-hover:bg-creamyWhite"></span>
+        <span class=" duration-300 ease-out bg-steelBlueGray group-hover:bg-slateBlue dark:group-hover:bg-creamyWhite dark:bg-lightGray"></span>
+        <span class="duration-300 ease-out bg-steelBlueGray group-hover:bg-slateBlue dark:group-hover:bg-creamyWhite dark:bg-lightGray"></span>
+        <span class="duration-300 ease-out group-hover:bg-slateBlue bg-steelBlueGray dark:group-hover:bg-creamyWhite dark:bg-lightGray"></span>
       </div>
     </label>
   </div>

@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
-  body {
-    @apply dark: bg-midnightBlack;
-  }
-} */
+
 
 /*reset */
 html {
@@ -67,6 +63,22 @@ h6 {
   font-weight: 700;
 }
 
+/* selection */
+*::selection {
+	background: #4f688c;
+	color: #faf1e4;
+}
+*::-moz-selection {
+	background: #4f688c;
+	color:#faf1e4;
+}
+
+/* webkit scrollbar */
+::-webkit-scrollbar-thumb {
+	background: #9393a7;
+	border-radius: 2px;
+}
+
 /* mobile menu */
 .hamburger {
   width: 100%;
@@ -87,7 +99,6 @@ h6 {
   width: 35px;
   height: 4px;
   position: relative;
-  background-color: #9393a7;
   z-index: 10;
   border-radius: 10px;
   transform-origin: 4px 0px;

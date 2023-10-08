@@ -2,12 +2,12 @@
 import { Image } from 'astro:assets';
 import { toolData } from '../../src/data/toolData'
 import MainLayout from '../layouts/MainLayout.astro'
-import TimKaoImage from '../../public/illustrations/image-gray-blue.svg'
+import TimKaoImage from '../../public/logo-icon.svg'
 import Laptop from '../../public/illustrations/Laptop.svg'
 import ScrollDown from '../components/ScrollDown.astro';
 import Title from '../components/Title.astro';
 import Icon from 'astro-icon';
-import Button from '../components/Button.astro'
+import NavigationalItem from '../components/NavigationalItem.astro'
 import { formatBlogPosts } from '../utils/utils'
 import BlogPost from '../components/BlogPost.astro';
 import { literal } from 'astro/zod';
@@ -32,29 +32,28 @@ const codepenUrl = "https://codepen.io/tim85124";
 const allPosts = await Astro.glob("./blog/*.md");
 const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
 
+const IntroductionText = '👋Hello，歡迎來到我的個人網站，我是一位前端開發者。退伍後完成ALPHA Camp的課程，獲得了豐富的前端技能，並不斷追求更好的表現。主要使用React開發，致力創造出使用者體驗良好的網站。歡迎瀏覽我的作品和專案。'
+
 ---
 
 <MainLayout title="Tim kao | dev" description="My Home page">
   <!-- main first section  -->
-  <section class=" min-h-screen w-full flex flex-col justify-center items-center gap-20 ">
-    <div class="w-full flex justify-center items-center ">
-      <div class="w-80">
-        <Image src={TimKaoImage} alt="timkao-image" class="w-full h-full select-none" />
+  <section class=" min-h-screen w-full flex flex-col justify-center items-center gap-16 ">
+    <div class="w-full flex flex-col justify-between items-center sm:pt-20">
+      <div class="w-52">
+        <Icon name="logo-icon" class="w-full h-full text-steelBlueGray dark:text-creamyWhite" />
       </div>
-      <div class="w-44 flex flex-col gap-2">
-        <div class="w-full">
-          <Image src={Laptop} alt="laptop-image" class="w-full select-none"  />
-        </div>
-        <h2 class="text-center text-steelBlueGray font-roboto">
-          <b class="text-3xl font-bold bg-slateBlue text-creamyWhite underline select-none ">Front-End</b><br/>
-          <span class="text-md">Developer</span>
+      <div class="flex flex-col gap-2 text-steelBlueGray dark:text-lightGray">
+        <h2 class="text-center text-steelBlueGray dark:text-lightGray font-roboto select-none">
+          <b class="text-3xl font-bold ">Front-End</b><br/>
+          <span class="text-md font-bold">Developer</span>
         </h2>
         <!-- github & linkdin & codepen Link -->
-        <div class="flex gap-3 justify-between">
+        <div class="flex gap-3 justify-between ">
           <a
             href={githubUrl}
             target="_blank"
-            aria-label="github page"
+            aria-label="link to github page"
             class="rounded-lg transition-all duration-150 hover:bg-slateBlue hover:text-creamyWhite dark:hover:bg-creamyWhite dark:hover:text-midnightBlack"
           >
             <Icon name="github" class="w-12 p-1" />
@@ -62,7 +61,7 @@ const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
           <a
             href={linkedinUrl}
             target="_blank"
-            aria-label="linkedin page"
+            aria-label="link to linkedin page"
             class="rounded-lg transition-all duration-150 hover:bg-slateBlue hover:text-creamyWhite dark:hover:bg-creamyWhite dark:hover:text-midnightBlack"
           >
             <Icon name="linkedin" class="w-12 p-1" />
@@ -70,7 +69,7 @@ const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
           <a
             href={codepenUrl}
             target="_blank"
-            aria-label="codepen page"
+            aria-label="link to codepen page"
             class="rounded-lg transition-all duration-150 hover:bg-slateBlue hover:text-creamyWhite dark:hover:bg-creamyWhite dark:hover:text-midnightBlack"
           >
             <Icon name="codepen" class="w-12 p-1" />
@@ -86,15 +85,15 @@ const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
     <div>
       <Title title="Introduction" />
       <p class="py-5 indent-8">
-        👋Hello，歡迎來到我的個人網站，我是一位前端開發者。退伍後完成ALPHA Camp的課程，獲得了豐富的前端技能，並不斷追求更好的表現。主要使用React開發，致力創造出使用者體驗良好的網站。歡迎瀏覽我的作品和專案。
+        {IntroductionText}
       </p>
     </div>
     <div class="w-full flex justify-center items-center">
-      <Button text="Contact" path="mailto: a0925172969@gmail.com"/>
+      <NavigationalItem text="Contact me" path="mailto: a0925172969@gmail.com" style="font-bold"/>
     </div>
   </section>
   <!-- top three blog post section -->
-  <section class="py-5 reveal" aria-label="Blog Posts">
+  <section class="py-5 reveal " >
     <Title title="Blog Posts" />
     <div class="flex flex-col gap-5 py-5 md:flex-row ">
       {
@@ -106,13 +105,12 @@ const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
       }
     </div>
     <a class="group flex justify-center items-center gap-1 mx-auto w-fit transition-all duration-300 hover:text-slateBlue hover:translate-x-1 dark:hover:text-creamyWhite cursor-pointer" href="/blog/">
-      <span class="text-current font-bold select-none ">All Posts</span>
-
+      <span class="text-current font-bold text-steelBlueGray dark:text-lightGray select-none ">All Posts</span>
       <Icon name="arrow-right-icon" class="w-8"/>
     </a>
   </section>
   <!-- Tool section -->
-  <section class="w-full py-5 reveal">
+  <section class="w-full py-5 reveal ">
     <div>
       <Title title="Tool" />
       <div class="flex flex-wrap w-full gap-10 py-5">
@@ -121,7 +119,7 @@ const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
             <Icon
               key={tool.name}
               name={tool.name}
-              class="transition-all ease-out duration-300 hover:text-slateBlue dark:hover:text-creamyWhite"
+              class="transition-all ease-out duration-300 text-steelBlueGray dark:text-lightGray hover:text-slateBlue dark:hover:text-creamyWhite"
               width="50"
               aria-label={`${tool.name}-icon`}
             />
@@ -131,32 +129,3 @@ const formattedPosts: PostProps[] = formatBlogPosts(allPosts)
     </div>
   </section>
 </MainLayout>
-
-<!-- <script is:inline>
-  if (
-    localStorage.getItem('color-theme') === 'dark' ||
-    (!('color-theme' in localStorage) &&
-      window.matchMedia('(prefers-color-scheme:dark)').matches)
-  ) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-</script>
-<script is:inline>
-  function reveal() {
-    const reveals = document.querySelectorAll('.reveal');
-
-    reveals.forEach((reveal) => {
-      const windowHeight = window.innerHeight;
-      const revealTop = reveal.getBoundingClientRect().top;
-      const revealPoint = 100;
-
-      if (revealTop < windowHeight - revealPoint) {
-        reveal.classList.add('reveal-active');
-      } 
-    });
-  }
-  window.addEventListener('scroll', reveal);
-</script> -->
-../utils/utils

@@ -8,15 +8,18 @@ type Props = {
 };
 
 const { text, href, iconName } = Astro.props as Props;
+const canonicalURL = new URL(Astro.request.url);
+const currentPath = canonicalURL.pathname
+
+
 ---
+
 <!-- nav item link -->
 <a
   id={text}
   href={href}
   aria-current="page"
-  aria-label={`link to ${text}`}
-  class="group flex gap-2 font-bold relative transition-all duration-300 ease-out sm:opacity-100 hover:text-slateBlue dark:hover:text-creamyWhite target:border-2"
-  data-astro-history="replace"
+  class={`group flex gap-2 font-bold relative transition-all duration-300 ease-out sm:opacity-100 hover:text-slateBlue dark:hover:text-creamyWhite target:border-2 ${currentPath === href ? 'text-slateBlue dark:text-creamyWhite' : ''}`}
 > 
   <Icon name={iconName} class="w-5 sm:hidden"/>
   <span>
@@ -27,15 +30,13 @@ const { text, href, iconName } = Astro.props as Props;
   ></span>
 </a>
 
-<!-- nav item link script -->
 <script is:inline>
-  const currentPath = window.location.pathname;
-  const links = document.querySelectorAll("a");
+  const menuList = document.querySelectorAll('.menu-list li')
 
-  links.forEach((link) => {
-    const href = link.getAttribute("href")
-    if (href === currentPath ) {
-      link.classList.add("text-slateBlue", "dark:text-creamyWhite");
-    }
-  });
+  menuList.forEach(list => {
+    list.addEventListener('click', function() {
+      const inputToggle = document.getElementById('input-toggle')
+      inputToggle.checked = false
+    })
+  })
 </script>

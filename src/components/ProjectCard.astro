@@ -1,8 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import Button from "./Button.astro";
+import NavigationalItem from "./NavigationalItem.astro";
 import { Icon } from "astro-icon";
-import { slugify } from "../utils/utils";
 
 
 type ProjectProps = {
@@ -20,37 +19,38 @@ const { title, tools, description, images, demo, repo } = Astro.props as Project
 <!-- projects   -->
 <section class="project-card flex flex-col justify-center gap-5 py-5 lg:flex-row transition-all duration-700">
   <div class="flex-1 flex flex-col gap-5">
-    <h2 class=" text-xl font-bold text-slateBlue dark:text-creamyWhite">
+    <h2 class=" text-xl font-bold text-midnightBlack dark:text-lightGray">
       {title}
     </h2>
     <!-- project use tool section -->
     <ul class="flex gap-5 flex-wrap py-2 border-b-[1px] border-steelBlueGray">
       {
         tools.map((tool) => (
-          <li class="flex gap-1 justify-center items-center ">
+          <li class="flex gap-1 justify-center items-center text-steelBlueGray dark:text-lightGray">
             <Icon name={tool.toLocaleLowerCase()} class="w-6 text-slateBlue dark:text-creamyWhite"/>
             <span class="cursor-default">{tool}</span>
           </li>
         ))
       }
     </ul>
-    <!-- description section -->
-    <p>{description}</p>
+    <p class="text-steelBlueGray dark:text-lightGray">{description}</p>
     <!-- demo & gitbub repo link -->
     <div class="flex gap-5 px-1">
-      <Button
+      <NavigationalItem
         path={demo}
-        name="demo-Rocket-icon"
-        classStyle="w-5"
+        iconName="demo-Rocket-icon"
+        iconStyle="w-5"
         text="Demo"
         showTarget={true}
+        style="font-bold"
       />
-      <Button
+      <NavigationalItem
         path={repo}
-        name="github"
-        classStyle="w-5"
+        iconName="github"
+        iconStyle="w-5"
         text="Repo"
         showTarget={true}
+        style="font-bold"
       />
     </div>
   </div>

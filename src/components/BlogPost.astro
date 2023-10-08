@@ -6,13 +6,13 @@ const { frontmatter, url } = Astro.props;
 const { title, date, category, author, description } = frontmatter;
 ---
 <!-- blog page posts -->
-<article class="border-b-[1px] border-steelBlueGray/50 pb-2">
+<article class="border-b-[1px] border-steelBlueGray/50 pb-2 text-steelBlueGray dark:text-lightGray">
   <!-- title & author & date section -->
   <section class="flex flex-col gap-1">
     <h2 class="text-lg font-bold text-slateBlue text-start dark:text-creamyWhite">
       <a href={url} class="underline-offset-4 line-clamp-1 hover:underline" title={title} >{title}</a>
     </h2>
-    <p class="text-xs text-midnightBlack dark:text-steelBlueGray">
+    <p class="text-xs text-midnightBlack dark:text-lightGray">
       by <a class="underline" href={`/author/${slugify(author)}/`}>{author}</a>
       • {formatDate(date)}
     </p>

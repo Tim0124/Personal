@@ -47,7 +47,7 @@ const { authorName, posts } = Astro.props;
 ---
 
 <MainLayout title={authorName} description="author posts page">
-  <section aria-label={`Posts by ${authorName}`} class="w-full pt-10 sm:pt-32 ">
+  <section class="w-full pt-10 sm:pt-32 ">
     <h1 class="text-xl font-bold">
       Post by <span class="text-light-blue dark:text-off-white">{authorName}</span>
     </h1>
@@ -61,4 +61,3 @@ const { authorName, posts } = Astro.props;
     </div>
   </section>
 </MainLayout>
-../../utils/utils

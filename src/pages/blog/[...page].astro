@@ -61,7 +61,7 @@ const { page } = Astro.props ;
 
 <MainLayout title="Blog" description="My Blog Page">
   <!-- blog first section -->
-  <section class=" min-h-screen mx-auto flex justify-center items-center flex-col gap-20 sm:max-w-lg">
+  <section class=" min-h-screen mx-auto flex justify-center items-center flex-col gap-20 sm:max-w-lg ">
     <div class="flex flex-col justify-center items-center gap-5 sm:flex-row-reverse">
       <div class="w-72 flex justify-center items-center">
         <Image src={BlogImage} alt="blog-image" class="w-full h-full select-none" />
@@ -70,15 +70,15 @@ const { page } = Astro.props ;
         <h1 class="text-3xl font-bold text-slateBlue dark:text-creamyWhite">
           Blog
         </h1>
-        <p class="text-center sm:text-start font-bold text-slateBlue dark:text-creamyWhite">
-          探索程式新世界：<br/><span class="font-normal text-steelBlueGray">“分享學習之旅”</span>
+        <p class="text-center sm:text-start font-bold text-steelBlueGray dark:text-lightGray">
+          探索程式新世界：<br/><span class="font-normal">“分享學習之旅”</span>
         </p>
       </div>
     </div>
     <ScrollDown />
   </section>
   <!-- blog posts section -->
-  <section id="content-wrapper" aria-label="Blog Posts" class="w-full py-5 reveal">
+  <section id="content-wrapper"  class="w-full py-5 reveal">
     <Title title="Blog Posts" />
     <div class="flex flex-col gap-5 py-5 reveal">
       {
@@ -90,10 +90,10 @@ const { page } = Astro.props ;
     <!-- pagination -->
       <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     <!-- aside section -->
-    <div class="pt-10 flex flex-col justify-between items-center" aria-label="Blog Categories">
+    <div class="pt-10 flex flex-col justify-between items-center">
       <!-- category -->
         <h2 class="text-center font-bold">Blog Categroies</h2>
         <Category showCount={true} />
     </div>
   </section>
-</MainLayout>../../utils/utils.js
+</MainLayout>

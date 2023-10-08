@@ -6,12 +6,13 @@ module.exports = {
     extend: {
 			colors: {
 				'midnightBlack': '#13151F',
-				'steelBlueGray': '#9393A7',
+				'steelBlueGray': '#515162',
 				'slateBlue': '#4F688C',
 				'deepIndigo': '#1E1F2F',
 				'coralRed': '#EC4C56',
 				'creamyWhite': '#FAF1E4',
-				'deepOrange': '#FF6600'
+				'deepOrange': '#FF6600',
+				'lightGray' : '#C2C2C2'
 			},
 			backgroundImage: {
         'dark-theme': "url('/dark-background.svg')",

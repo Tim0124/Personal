@@ -1,28 +1,26 @@
 ---
 import { Icon } from "astro-icon";
 
-type buttonProps = {
-  name: string;
+type NavigationProps = {
+  iconName: string;
   text: string;
   path: string;
-  classStyle: string;
+  iconStyle: string;
   width: string;
   style: string;
   showTarget: boolean;
 };
 
-const { name, text, path, classStyle, width, style, showTarget } =
-  Astro.props as buttonProps;
+const { iconName, text, path, iconStyle, width, style, showTarget } =
+  Astro.props as NavigationProps;
 ---
 <!-- custom button -->
-<button role="button">
   <a
     href={path}
     class=`w-fit p-1 px-2 rounded-lg flex items-center gap-1 text-md border-2 border-slateBlue
     text-slateBlue transition-all duration-300 ease-in-out hover:bg-slateBlue hover:text-creamyWhite dark:text-creamyWhite dark:border-creamyWhite dark:hover:bg-creamyWhite dark:hover:text-slateBlue hover:bg-gradient-to-r from-slateBlue dark:hover:bg-gradient-to-r dark:from-creamyWhite ${style}`
     target={showTarget ? "_blank" : ""}
   >
-    {name ? <Icon name={name} width={width} class={classStyle} /> : null}
+    {iconName ? <Icon name={iconName} width={width} class={iconStyle}/> : null}
     <span>{text}</span>
   </a>
-</button>

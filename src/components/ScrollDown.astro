@@ -3,17 +3,16 @@ import Icon from 'astro-icon';
 ---
 <!-- scroll down button -->
 <button
+  id="scroll-down"
   class="w-full h-14 mx-auto opacity-80 animate-bounce select-none hover:opacity-100"
   aria-label="Scroll to Content"
-  onclick="ScrollDown()"
-  role="button"
-  type="button"
 >
   <Icon name="scroll-down-icon" class="w-14 mx-auto"/>
 </button>
 
 <script is:inline>
-  function ScrollDown() {
+  const scrolldonwBtn = document.getElementById('scroll-down')
+  function scrollDown() {
     const element = document.getElementById('content-wrapper');
     element?.scrollIntoView({
       behavior: 'smooth',
@@ -21,4 +20,5 @@ import Icon from 'astro-icon';
       inline: 'nearest',
     });
   }
+  scrolldonwBtn.addEventListener('click', scrollDown)
 </script>

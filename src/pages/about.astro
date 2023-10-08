@@ -7,32 +7,33 @@ import AvatarDesktop from "../../public/images/personal-avatar.png";
 import Title from "../components/Title.astro";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon";
-import Button from "../components/Button.astro";
+import NavigationalItem from "../components/NavigationalItem.astro";
+import TimKaoImage from '../../public/logo-icon.svg'
 
 const backgroundText =
-  "我是一位具有多元背景的人，擁有影視傳播學位以及寶貴的軍事經歷。畢業於影視傳播系的背景培養了我對視覺的興趣。然而，我在軍中學到的領導、團隊協作和解決問題的技能也對我的專業背景產生了深遠的影響。這些經歷使我能夠更全面地看待挑戰，並找到解決方法。退伍後，我接觸到了網頁開發，並完成了ALPHA Camp的課程，致力於轉職成為一名前端工程師。";
+  "Hi!我是一位具有多元背景的人，擁有影視傳播學位以及寶貴的軍事經歷。畢業於影視傳播系的背景培養了我對視覺的興趣。然而，我在軍中學到的領導、團隊協作和解決問題的技能也對我的專業背景產生了深遠的影響。這些經歷使我能夠更全面地看待挑戰，並找到解決方法。退伍後，我接觸到了網頁開發，並完成了ALPHA Camp的課程，致力於轉職成為一名前端工程師。";
 
 const visionText =
-  "我的願景是成為一名優秀的前端工程師，致力於開發出令用戶驚艷的網站體驗。我較重視穩定且注重大局的價值觀。同時，我也樂於冒險，挑戰自己，並不斷尋求創新。我深知學習是不斷演進的過程，願意接受錯誤並從中學習，以便不斷成長和改進，以達到我的目標。在未來，我期許自己能參與意義深遠的專案，並掌握新技術，以提升我的專業能力。";
+  "我的願景是成為一名優秀的前端工程師，致力於開發出令用戶驚艷的網站體驗。我較重視穩定且注重大局的價值觀。同時，也樂於冒險，挑戰自己，並不斷尋求創新。以便不斷成長和改進，以達到我的目標。在未來，期許自己能參與意義深遠的專案，並掌握新技術，以提升專業能力。";
 ---
 
 <MainLayout title="About" description="My About Page">
   <!-- about first section -->
   <section class="min-h-screen mx-auto flex justify-center items-center flex-col gap-20 sm:max-w-lg">
     <div class="flex flex-col gap-5 sm:flex-row-reverse">
-      <div class="w-72   flex justify-center items-center">
-        <Image src={AboutImage} alt="about-iamge" class="w-full h-full select-none"/>
+      <div class="w-64 flex justify-center items-center">
+        <Icon name="logo-icon" class="w-full h-full text-steelBlueGray dark:text-creamyWhite" />
       </div>
-      <div class="flex flex-col items-center gap-3 sm:flex-1 sm:items-start">
+      <div class="flex flex-col justify-center items-center gap-3 sm:flex-1 sm:items-start">
         <h1 class="text-3xl font-bold text-slateBlue dark:text-creamyWhite">
           Hello, <br class="hidden sm:block" />I'm Tim.
         </h1>
-        <p class="text-center sm:text-start font-bold text-slateBlue dark:text-creamyWhite">揭開我的程式之旅：<br/><span class=" font-normal text-steelBlueGray">“創意、程式、啟發”</span></p>
-        <Button
+        <p class="text-center sm:text-start font-bold text-steelBlueGray dark:text-lightGray">揭開我的程式之旅：<br/><span class="font-normal">“創意、程式、啟發”</span></p>
+        <NavigationalItem
           path="https://drive.google.com/file/d/1RvZme8j4SVCyjqNVUzv92-vuLxXrnkMd/view?usp=sharing"
           text="Resume"
           classStyle="w-10 py-5"
-          style="py-2"
+          style="py-2 font-bold"
           showTarget={true}
         />
       </div>
@@ -51,7 +52,7 @@ const visionText =
           class="mx-auto w-full h-full rounded-full lg:rounded-none shadow-lg select-none"
         />
       </div>
-      <div class="flex-1">
+      <div class="flex-1 text-steelBlueGray dark:text-lightGray">
         <h3 class="text-xl font-bold py-3 text-slateBlue dark:text-creamyWhite">
           背景
         </h3>
@@ -74,7 +75,7 @@ const visionText =
       <Icon
         name="typescript"
         width="40"
-        class="transition-all ease-out duration-300 hover:text-slateBlue dark:hover:text-creamyWhite"
+        class="transition-all ease-out duration-300 text-steelBlueGray dark:text-lightGray hover:text-slateBlue dark:hover:text-creamyWhite"
       />
     </div>
   </section>

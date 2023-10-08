@@ -6,6 +6,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://stargazers.club',
+  site: 'https://golden-stroopwafel-1069c0.netlify.app/',
   integrations: [react(), tailwind(), sitemap()]
 });

@@ -3,24 +3,23 @@ import { Icon } from "astro-icon";
 ---
 <!-- scroll to top button -->
 <button
-  class="scroll-top w-12 h-12 sticky opacity-0 translate-y-10 text-creamyWhite/75 bg-deepOrange/75 rounded-full p-2 bottom-20 lg:bottom-12 left-[85%] transition-all duration-700 ease-out z-10 sm:left-[90%] hover:bg-deepOrange hover:text-creamyWhite pointer-events-none dark:text-midnightBlack"
-  onclick="ScrollTop()"
-  title="back to top"
-  role="button"
-  type="button"
-  transition:persist
+  id="srcoll-top"
+  class="scroll-top w-12 h-12 sticky opacity-0 translate-y-10 text-creamyWhite/75 bg-deepOrange/75 rounded-full p-2 bottom-20 shadow-lg lg:bottom-12 left-[85%] transition-all duration-700 ease-out z-10 sm:left-[90%] hover:bg-deepOrange hover:text-creamyWhite pointer-events-none dark:text-midnightBlack"
+  aria-label="back to top"
 >
   <Icon name="scroll-top-icon" class="w-full h-full" />
 </button>
 
 <script is:inline>
+  const scrollBtn = document.getElementById('srcoll-top')
+
 const scrollPoint = 100;
 const scrollTopBtn = document.querySelector(".scroll-top");
 const scrollContainer = () => {
   return document.documentElement || document.body;
 }
 
-function ScrollTop() {
+function scrollTop() {
   const element = document.getElementById("content-top");
   element.scrollIntoView({
     behavior: "smooth",
@@ -52,6 +51,7 @@ function initialPosition () {
     )
   }
 }
+scrollBtn.addEventListener('click', scrollTop)
 
 document.addEventListener("scroll", initialPosition)
 </script>
