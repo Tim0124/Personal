@@ -23,40 +23,38 @@ import { Icon } from "astro-icon";
 
 <script is:inline>
   let themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+  let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-function setTheme() {
-     if (localStorage.getItem('color-theme')) {
-        document.documentElement.classList[localStorage.getItem('color-theme') === 'dark' ? 'add' : 'remove']('dark');
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
-   
-    if (document.documentElement.classList.contains('dark')) {
-        themeToggleLightIcon.classList.remove('hidden');
-        themeToggleDarkIcon.classList.add('hidden');
-    } else {
-        themeToggleDarkIcon.classList.remove('hidden');
-        themeToggleLightIcon.classList.add('hidden');
-    }
-}
+  function setTheme() {
+      if (localStorage.getItem('color-theme')) {
+          document.documentElement.classList[localStorage.getItem('color-theme') === 'dark' ? 'add' : 'remove']('dark');
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+      } else {
+          document.documentElement.classList.remove('dark');
+      }
+    
+      if (document.documentElement.classList.contains('dark')) {
+          themeToggleLightIcon.classList.remove('hidden');
+          themeToggleDarkIcon.classList.add('hidden');
+      } else {
+          themeToggleDarkIcon.classList.remove('hidden');
+          themeToggleLightIcon.classList.add('hidden');
+      }
+  }
 
-window.addEventListener('DOMContentLoaded', setTheme)
+  window.addEventListener('DOMContentLoaded', setTheme)
 
-let themeToggleBtn = document.getElementById('theme-toggle');
-themeToggleBtn.addEventListener('click', function() {
-    if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('color-theme', 'light');
-    } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('color-theme', 'dark');
-    }
-    setTheme()
-})
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',setTheme);
+  let themeToggleBtn = document.getElementById('theme-toggle');
+  themeToggleBtn.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+      } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+      }
+      setTheme()
+  })
 
 </script>
