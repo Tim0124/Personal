@@ -151,5 +151,5 @@ a .list-item {
 }
 
 .show-nav-item {
-  @apply flex flex-col  absolute top-20 left-1/2 transform -translate-x-1/2  
+  @apply flex    
 }
