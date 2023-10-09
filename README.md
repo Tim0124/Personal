@@ -1,6 +1,6 @@
 # Personal Web
 
-這是我的個人網站，使用Astro搭配Tailwind CSS所打造，歡迎瀏覽。
+這是我的個人網站，所使用Astro和TailwindCSS打造的，展示我的作品和經歷的平台，在這裡呈現了我在前端開發上的熱情與創意。透過簡約的設計和良好的體驗，希望讓訪問者更好地了解我的技能和價值觀。
 
 ![image](./public/images/personal-image.png)
 Link:https://timkao-dev.netlify.app/
