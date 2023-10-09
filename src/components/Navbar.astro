@@ -12,9 +12,9 @@ import { navData } from "../../src/data/navData"
   class=" flex justify-between p-5 top-0 sticky w-full z-20 border-b-[1px] border-steelBlueGray/30 transition-all ease-out duration-300 bg-creamyWhite text-steelBlueGray sm:relative sm:border-0 lg:max-w-screen-xl dark:bg-nightBlue dark:text-lightGray select-none"
   >
   <!--  navbar logo section -->
-  <a href="/" class="group flex justify-center content-end gap-2 w-50 h-10" aria-label="back to home page">
-    <Icon name="logo-icon" class=" w-8 text-steelBlueGray dark:text-lightGray group-hover:text-slateBlue dark:group-hover:text-creamyWhite"/>
-    <h1 class="hidden leading-10 text-xl font-bold text-steelBlueGray dark:text-lightGray md:block group-hover:text-slateBlue dark:group-hover:text-creamyWhite">Tim's dev.</h1>
+  <a href="/" class="group flex justify-center content-end gap-2 w-50 h-10" aria-labelledby="site-title">
+    <Icon name="logo-icon" class=" w-8 text-steelBlueGray dark:text-lightGray group-hover:text-slateBlue dark:group-hover:text-creamyWhite" aria-hidden="true"/>
+    <h1 id="site-title" class="hidden leading-10 text-xl font-bold text-steelBlueGray dark:text-lightGray md:block group-hover:text-slateBlue dark:group-hover:text-creamyWhite">Tim's dev.</h1>
   </a>
   <!-- mobile menu style switch -->
   <input
