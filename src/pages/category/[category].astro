@@ -52,10 +52,10 @@ const catePosts = formattedPosts.filter((post) => slugify(post.frontmatter.categ
 ---
 
 <MainLayout title="categories" description="categories page">
-  <section class="w-full pt-10 sm:pt-32 ">
-    <h1 class="text-xl font-bold">
+  <section class="w-full  pt-10 sm:pt-32 ">
+    <h1 class="text-xl font-bold text-steelBlueGray dark:text-lightGray">
       Post about 
-      <span class="text-light-blue dark:text-off-white">{name}</span>
+      <span class="text-slateBlue dark:text-creamyWhite">{name}</span>
     </h1>
     <div class="flex flex-col gap-5 py-5">
       { catePosts.map((post) => (
