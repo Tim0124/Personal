@@ -64,7 +64,7 @@ Astro是一個多合一的網頁框架，Astro提供組件、路由、資料處�
 <br/>
 <br/>
 
-1. Astro.props()
+Astro.props()
 <br/>
 元件間傳遞任何值的一個功能，如果是寫TypeScript，也可以定義props的型別
 
@@ -87,7 +87,7 @@ const { text } = Astro.props
 
 <br/>
 
-2. Astro.glob()
+Astro.glob()
 <br/>
 可以指定一個或許多檔案載入到靜態網站中的一種方法
 
@@ -110,7 +110,7 @@ const allPosts = await Astro.glob('../pages/blog/*.md')
 
 <br/>
 
-3. getStaticPaths()
+getStaticPaths()
 <br/>
 在頁面的檔案名稱中使用動態參數，該元件需要匯出一個getStaticPaths()的函數，會返回一個物件陣列。如要將資料傳遞到每個產生的頁面，也可以在裡面使用。
 
