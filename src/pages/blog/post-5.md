@@ -1,6 +1,6 @@
 ---
 layout: "../../layouts/BlogPostLayout.astro"
-title: 使用Astro打造個人網頁
+title: 使用Astro打造個人網站
 date: 2023-10-11
 author: Tim Kao
 description: 想到的第一個side project就是做出個人網站，看了很多網路上的作品，最後決定使用Astro來打造...
@@ -64,9 +64,10 @@ Astro是一個多合一的網頁框架，Astro提供組件、路由、資料處�
 <br/>
 <br/>
 
-Astro.props()
+**Astro.props()**
 <br/>
 元件間傳遞任何值的一個功能，如果是寫TypeScript，也可以定義props的型別
+
 
 
 ```
@@ -76,6 +77,10 @@ import Button from '../components/Button.astro'
 ---
 <Button text='Click' />
 ```
+
+<br/>
+
+
 ```
 //Button.astro
 ---
@@ -85,11 +90,16 @@ const { text } = Astro.props
 
 ```
 
+
+
+
+
 <br/>
 
-Astro.glob()
+**Astro.glob()**
 <br/>
 可以指定一個或許多檔案載入到靜態網站中的一種方法
+
 
 ```
 ---
@@ -108,11 +118,14 @@ const allPosts = await Astro.glob('../pages/blog/*.md')
 </div>
 ```
 
+
 <br/>
 
-getStaticPaths()
+**getStaticPaths()**
 <br/>
 在頁面的檔案名稱中使用動態參數，該元件需要匯出一個getStaticPaths()的函數，會返回一個物件陣列。如要將資料傳遞到每個產生的頁面，也可以在裡面使用。
+
+<!-- <div>
 
 ```
 ---
@@ -142,6 +155,9 @@ const { name } = Astro.props
 ---
 HTML template ...
 ```
+
+</div> -->
+
 <br/>
 
 ## 優化和部署

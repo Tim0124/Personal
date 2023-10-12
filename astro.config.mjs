@@ -7,5 +7,8 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://timkao-dev.netlify.app/',
-  integrations: [react(), tailwind(), sitemap()]
+  integrations: [react(), tailwind(), sitemap()],
+  markdown: {
+    drafts: true,
+  }
 });
