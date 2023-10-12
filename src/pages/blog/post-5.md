@@ -181,7 +181,7 @@ HTML template ...
 ### 部署
 最後，在完成網站的基本架構後，我優化了網站，確保載入時的速度不會太慢，並且在各種裝置上正常運作。我選擇使用Netlify，將網站部署到線上，並使用lighthouse前端稽核功能，看看是否有需要改進的地方(某些圖片載入速度過慢、無障礙功能不足)，雖然這個評分不能作為唯一的依據，但對我來說能夠了解自己網站效能的不足之處，這點很重要。
 
-![lighthouse](/images/lighthouse.jpg)
+![lighthouse](/images/lighthouse.png)
 <br/>
 
 ## 總結
