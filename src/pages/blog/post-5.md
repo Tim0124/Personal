@@ -125,7 +125,7 @@ const allPosts = await Astro.glob('../pages/blog/*.md')
 <br/>
 在頁面的檔案名稱中使用動態參數，該元件需要匯出一個getStaticPaths()的函數，會返回一個物件陣列。如要將資料傳遞到每個產生的頁面，也可以在裡面使用。
 
-<!-- <div>
+
 
 ```
 ---
@@ -156,7 +156,6 @@ const { name } = Astro.props
 HTML template ...
 ```
 
-</div> -->
 
 <br/>
 
@@ -169,10 +168,10 @@ HTML template ...
 <br/>
 
 #### Image元件
-- 優化圖片大小
-- 根據原始寬高比去推斷寬高，以避免累計版面配置位移(CLS)
-- 預設載入格式是.webp，也可以手動變更其他格式
-- 調整圖片品質，可選擇(low,mid,hight,max)或是0~100的數字
+- ・優化圖片大小
+- ・根據原始寬高比去推斷寬高，以避免累計版面配置位移(CLS)
+- ・預設載入格式是.webp，也可以手動變更其他格式
+- ・調整圖片品質，可選擇(low,mid,hight,max)或是0~100的數字
 
 | 特別注意在使用Image元件時，alt屬性是必填的。
 <br/>
