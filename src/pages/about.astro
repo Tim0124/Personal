@@ -2,6 +2,8 @@
 import ScrollDown from "../components/ScrollDown.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import AvatarMoblie from "../assets/images/personal-avatar.png";
+import Avatar from '../assets/images/new_avatar_round.png'
+import AvatarDesktop from '../assets/images/new_avatar-mid.png'
 import Title from "../components/Title.astro";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon";
@@ -42,11 +44,16 @@ const visionText =
   <section id="content-wrapper" class="w-full py-5 reveal">
     <Title title="About" />
     <div class="flex flex-col gap-5 h-full py-5 lg:flex-row transition-all duration-500">
-      <div class=" w-44  h-44 mx-auto aspect-video object-cover lg:w-72 lg:h-96 lg:flex lg:flex-col lg:gap-2">
+      <div class=" w-44 mx-auto shadow-lg rounded-full lg:rounded-none lg:w-72 lg:flex lg:flex-col lg:gap-2">
         <Image
-          src={AvatarMoblie}
+          src={Avatar}
           alt="avatar-moblie"
-          class="mx-auto w-full h-full rounded-full lg:rounded-none shadow-lg select-none"
+          class="mx-auto w-full h-full rounded-full select-none lg:hidden"
+        />
+        <Image
+          src={AvatarDesktop}
+          alt='avatar-desktop'
+          class="hidden lg:block"
         />
       </div>
       <div class="flex-1 text-steelBlueGray dark:text-lightGray">
