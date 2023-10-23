@@ -13,7 +13,7 @@ type FormProps = {
 }
 
 
-export default function ToMail() {
+export default function ContactForm() {
   const [form, setForm] = useState<FormProps>({
     name: '',
     email: '',
