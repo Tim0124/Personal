@@ -8,7 +8,7 @@ const { prevUrl, nextUrl } = Astro.props;
   <!-- previous link -->
 {
   prevUrl ? (
-    <a href={prevUrl} class="flex flex-row-reverse items-center w-fit transition-all duration-300 ease-out hover:text-slateBlue hover:-translate-x-1 dark:hover:text-creamyWhite">
+    <a href={prevUrl} class="flex flex-row-reverse items-center w-fit transition-all duration-300 ease-out hover:text-slateBlue hover:-translate-x-1 dark:text-lightGray dark:hover:text-creamyWhite">
       <span class="font-bold">Previous</span>
       <Icon name="ArrowLeft" class="w-8 cursor-pointer" />
     </a>
@@ -23,7 +23,7 @@ const { prevUrl, nextUrl } = Astro.props;
 <!-- next link -->
 {
   nextUrl ? (
-    <a href={nextUrl} class="flex items-center w-fit transition-all duration-300 ease-out hover:text-slateBlue hover:translate-x-1 dark:hover:text-creamyWhite">
+    <a href={nextUrl} class="flex items-center w-fit transition-all duration-300 ease-out hover:text-slateBlue hover:translate-x-1 dark:text-lightGray dark:hover:text-creamyWhite">
       <span class="font-bold">Next</span>
       <Icon name="ArrowRight" class="w-8 cursor-pointer" />
     </a>
